@@ -1,3 +1,5 @@
+# Document: https://python.langchain.com/docs/how_to/example_selectors_similarity/
+
 from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain_huggingface import HuggingFaceEmbeddings
 import faiss
@@ -24,7 +26,8 @@ examples = [
     {"input": "Show me the train with repair priority from 2024-08-04 to 2024-08-09.", "output": "relevant"},
     {"input": "If today is 2023-07-02, what time does train 800102 start and end today?", "output": "not_relevant"},
     {"input": "What time on 2024-08-06 is diagram CN811 spare?", "output": "time"},
-    # Increase the sample size if needed 
+    # Increase the sample size and output label if needed 
+    # input and output could be formatted as dict, for example = [{"input": {"Availability": "Available", "Unit Com.": "", "Location Com.": "", "Other Com.": "", "main_status": "Breach", "Details": "801222 - Unavoidable MW breach due to diagrams"}, "output": "Category Defect"}]
 ]
 
 def convert_input_to_string(input_data):
